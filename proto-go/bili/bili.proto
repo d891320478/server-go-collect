@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+option java_multiple_files = true;
+option java_package = "com.htdong.common.rpc.bili";
+option java_outer_classname = "BiliRpcServiceProto";
+option objc_class_prefix = "DEMOSRV";
+
+option go_package = "./;bili";
+
+service BiliRpcService {
+    rpc RoomCanUseServer(google.protobuf.Int64Value) returns (google.protobuf.BoolValue) {}
+}
