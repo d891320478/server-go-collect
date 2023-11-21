@@ -4,7 +4,6 @@ dubbo:
       protocol: zookeeper
       timeout: 5s
       address: zookeeper.server.net:2181
-      group: bili-danmu
       registry-type: interface
   consumer:
     references:
