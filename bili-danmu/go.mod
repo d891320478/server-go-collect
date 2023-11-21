@@ -4,15 +4,15 @@ go 1.19
 
 require (
 	dubbo.apache.org/dubbo-go/v3 v3.1.0
-	github.com/d891320478/server-go-collect/base-log v0.0.0-20231121085613-eece81ae54c3
-	github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121085613-eece81ae54c3
+	github.com/d891320478/server-go-collect/base-log v0.0.0-20231121095326-b51dd3b19289
+	github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121101636-4d7e79dc779d
 	github.com/gorilla/mux v1.7.3
 	github.com/gorilla/websocket v1.5.1
 	google.golang.org/protobuf v1.31.0
 )
 
 require (
-	cloud.google.com/go/compute v1.23.2 // indirect
+	cloud.google.com/go/compute v1.23.3 // indirect
 	cloud.google.com/go/compute/metadata v0.2.3 // indirect
 	github.com/RoaringBitmap/roaring v1.2.3 // indirect
 	github.com/Workiva/go-datastructures v1.0.52 // indirect
@@ -111,15 +111,15 @@ require (
 	go.uber.org/zap v1.21.0 // indirect
 	golang.org/x/crypto v0.15.0 // indirect
 	golang.org/x/net v0.18.0 // indirect
-	golang.org/x/oauth2 v0.11.0 // indirect
+	golang.org/x/oauth2 v0.13.0 // indirect
 	golang.org/x/sync v0.3.0 // indirect
 	golang.org/x/sys v0.14.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20231030173426-d783a09b4405 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20231016165738-49dd2c1f3d0b // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20231106174013-bbf56f31fb17 // indirect
+	google.golang.org/genproto v0.0.0-20231106174013-bbf56f31fb17 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20231030173426-d783a09b4405 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20231120223509-83a465c0220f // indirect
 	google.golang.org/grpc v1.59.0 // indirect
 	gopkg.in/ini.v1 v1.66.2 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
