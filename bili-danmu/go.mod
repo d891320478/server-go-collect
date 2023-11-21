@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	dubbo.apache.org/dubbo-go/v3 v3.1.0
-	github.com/d891320478/server-go-collect v0.0.0-20231121085205-9d6d691ae515
+	github.com/d891320478/server-go-collect v0.0.0-20231121085613-eece81ae54c3
 	github.com/gorilla/mux v1.7.3
 	google.golang.org/protobuf v1.31.0
 )
@@ -29,6 +29,7 @@ require (
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/creasty/defaults v1.5.2 // indirect
+	github.com/d891320478/server-go-collect/base-log v0.0.0-20231121085205-9d6d691ae515 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dlclark/regexp2 v1.7.0 // indirect
 	github.com/dubbogo/go-zookeeper v1.0.4-0.20211212162352-f9d2183d89d5 // indirect
@@ -58,6 +59,7 @@ require (
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/vault/sdk v0.7.0 // indirect
 	github.com/influxdata/tdigest v0.0.1 // indirect
+	github.com/jeanphorn/log4go v0.0.0-20190526082429-7dbb8deb9468 // indirect
 	github.com/jinzhu/copier v0.3.5 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -94,6 +96,7 @@ require (
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/tklauser/go-sysconf v0.3.10 // indirect
 	github.com/tklauser/numcpus v0.4.0 // indirect
+	github.com/toolkits/file v0.0.0-20160325033739-a5b3c5147e07 // indirect
 	github.com/uber/jaeger-client-go v2.29.1+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/ugorji/go/codec v1.2.6 // indirect
