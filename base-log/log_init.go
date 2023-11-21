@@ -1,7 +1,6 @@
 package baselog
 
 import (
-	"fmt"
 	"os/exec"
 
 	"github.com/jeanphorn/log4go"
@@ -11,13 +10,11 @@ func InitLog(appName string) {
 	// 创建日志目录
 	logPath := "/data/logs/" + appName
 	createLogCmd := exec.Command("mkdir", "-p", logPath)
-	createLogOut, err := createLogCmd.Output()
-	fmt.Println(string(createLogOut))
-	fmt.Println(err)
+	createLogCmd.Output()
 	// 输出到控制台,级别为CRITICAL
 	log4go.AddFilter("stdout", log4go.CRITICAL, log4go.NewConsoleLogWriter())
 	// info
-	infoLogWriter := log4go.NewFileLogWriter(logPath+"/error.log", true, true)
+	infoLogWriter := log4go.NewFileLogWriter(logPath+"/info.log", true, true)
 	infoLogWriter.SetRotateSize(100 * 1024 * 1024)
 	infoLogWriter.SetRotateMaxBackup(7)
 	infoLogWriter.SetFormat("%D %T %L %S - %M")
