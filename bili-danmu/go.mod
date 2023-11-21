@@ -4,7 +4,8 @@ go 1.19
 
 require (
 	dubbo.apache.org/dubbo-go/v3 v3.1.0
-	github.com/d891320478/server-go-collect v0.0.0-20231117122937-a2899b1d49db
+	github.com/d891320478/server-go-collect v0.0.0-20231121085205-9d6d691ae515
+	github.com/gorilla/mux v1.7.3
 	google.golang.org/protobuf v1.31.0
 )
 
@@ -51,7 +52,7 @@ require (
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/uuid v1.3.1 // indirect
-	github.com/gorilla/websocket v1.4.2 // indirect
+	github.com/gorilla/websocket v1.5.1 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
