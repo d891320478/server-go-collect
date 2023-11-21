@@ -4,8 +4,10 @@ go 1.19
 
 require (
 	dubbo.apache.org/dubbo-go/v3 v3.1.0
-	github.com/d891320478/server-go-collect v0.0.0-20231121085613-eece81ae54c3
+	github.com/d891320478/server-go-collect/base-log v0.0.0-20231121085613-eece81ae54c3
+	github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121085613-eece81ae54c3
 	github.com/gorilla/mux v1.7.3
+	github.com/gorilla/websocket v1.5.1
 	google.golang.org/protobuf v1.31.0
 )
 
@@ -29,7 +31,6 @@ require (
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/creasty/defaults v1.5.2 // indirect
-	github.com/d891320478/server-go-collect/base-log v0.0.0-20231121085205-9d6d691ae515 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dlclark/regexp2 v1.7.0 // indirect
 	github.com/dubbogo/go-zookeeper v1.0.4-0.20211212162352-f9d2183d89d5 // indirect
@@ -53,7 +54,6 @@ require (
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/uuid v1.3.1 // indirect
-	github.com/gorilla/websocket v1.5.1 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
