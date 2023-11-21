@@ -21,5 +21,8 @@ func main() {
 	}
 	router := mux.NewRouter()
 	router.HandleFunc("/bili-danmu/danmuList", httpmethod.DanmuList)
-	http.ListenAndServe(":9755", router)
+	err := http.ListenAndServe(":9755", router)
+	if err != nil {
+		panic(err)
+	}
 }

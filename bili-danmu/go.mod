@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	dubbo.apache.org/dubbo-go/v3 v3.1.0
-	github.com/d891320478/server-go-collect/base-log v0.0.0-20231121095326-b51dd3b19289
+	github.com/d891320478/server-go-collect/base-log v0.0.0-20231121101748-f03155905f20
 	github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121101636-4d7e79dc779d
 	github.com/gorilla/mux v1.7.3
 	github.com/gorilla/websocket v1.5.1

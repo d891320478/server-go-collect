@@ -499,8 +499,8 @@ github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ3
 github.com/creack/pty v1.1.11/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/creasty/defaults v1.5.2 h1:/VfB6uxpyp6h0fr7SPp7n8WJBoV8jfxQXPCnkVSjyls=
 github.com/creasty/defaults v1.5.2/go.mod h1:FPZ+Y0WNrbqOVw+c6av63eyHUAl6pMHZwqLPvXUZGfY=
-github.com/d891320478/server-go-collect/base-log v0.0.0-20231121095326-b51dd3b19289 h1:i381QyUmsVAymhYtb6Ls4MC+AU5bKhNddPW05tBIglI=
-github.com/d891320478/server-go-collect/base-log v0.0.0-20231121095326-b51dd3b19289/go.mod h1:L2wJWLKISefCrtrZhb/VvlG43ZLuIJupKnTu9SYpeRE=
+github.com/d891320478/server-go-collect/base-log v0.0.0-20231121101748-f03155905f20 h1:zRH1GI64JCLB+r0YW7NwR7A9tv+ST0Gz48d3LHPbMh4=
+github.com/d891320478/server-go-collect/base-log v0.0.0-20231121101748-f03155905f20/go.mod h1:L2wJWLKISefCrtrZhb/VvlG43ZLuIJupKnTu9SYpeRE=
 github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121101636-4d7e79dc779d h1:rWv8Hlgc3/Z3Tf6tCHcD5O4NhUHoZMHRP/aLlwLX1oU=
 github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121101636-4d7e79dc779d/go.mod h1:QdcbffB5uIPNFka+07W4B3PRjFBMfUH/6wqPEgjK3KQ=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
