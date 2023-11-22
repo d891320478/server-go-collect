@@ -27,12 +27,17 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 	defer ws.Close()
 	// 判断roomId白名单
 	roomIdStr := r.URL.Query().Get("roomId")
-	roomId, _ := strconv.ParseInt(roomIdStr, 10, 0)
+	roomId, err := strconv.ParseInt(roomIdStr, 10, 0)
+	if err != nil {
+		w.WriteHeader(404)
+	}
 	roomIdWrapper := &wrapperspb.Int64Value{
 		Value: roomId,
 	}
 	can, err := bean.BiliRpcService.RoomCanUseServer(context.Background(), roomIdWrapper)
 	if err != nil || !can.Value {
+		baselog.ErrorLog().Error("get ws error. err = %v, roomId = %d, can = %t", err, roomId, can.Value)
+		w.WriteHeader(404)
 		return
 	}
 	// 连接弹幕
