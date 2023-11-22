@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"time"
 
+	baselog "github.com/d891320478/server-go-collect/base-log"
 	"github.com/d891320478/server-go-collect/bili-danmu/bean"
 	"github.com/gorilla/websocket"
 	"google.golang.org/protobuf/types/known/wrapperspb"
@@ -20,6 +21,7 @@ var wu = &websocket.Upgrader{
 func DanmuList(w http.ResponseWriter, r *http.Request) {
 	ws, err := wu.Upgrade(w, r, nil)
 	if err != nil {
+		baselog.ErrorLog().Error("get ws error. err = %v", err)
 		return
 	}
 	defer ws.Close()
