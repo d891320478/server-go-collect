@@ -6,19 +6,31 @@ import (
 
 	"github.com/Akegarasu/blivedm-go/client"
 	"github.com/Akegarasu/blivedm-go/message"
+	"github.com/d891320478/server-go-collect/bili-danmu/domain"
 )
 
-func Register(channel chan string, roomId int64) (*client.Client, error) {
+func Register(channel chan domain.DanMuVO, roomId int64) (*client.Client, error) {
 	c := client.NewClient(int(roomId))
 	c.SetCookie(getCookieFromFile())
 	// 弹幕事件
 	c.OnDanmaku(func(danmaku *message.Danmaku) {
 		// TODO
-		channel <- danmaku.Content
+		channel <- domain.DanMuVO{
+			Content: danmaku.Content,
+			Name:    danmaku.Sender.Uname,
+			Sc:      false,
+			Uid:     danmaku.Sender.Uid,
+		}
 	})
 	// 醒目留言
 	c.OnSuperChat(func(superChat *message.SuperChat) {
-		// TODO
+		channel <- domain.DanMuVO{
+			Content: superChat.Message,
+			Name:    superChat.UserInfo.Uname,
+			Sc:      true,
+			Uid:     superChat.Uid,
+			Avatar:  superChat.UserInfo.Face,
+		}
 	})
 	return c, c.Start()
 }

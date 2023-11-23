@@ -8,6 +8,7 @@ import (
 	baselog "github.com/d891320478/server-go-collect/base-log"
 	"github.com/d891320478/server-go-collect/bili-danmu/bean"
 	"github.com/d891320478/server-go-collect/bili-danmu/biliservice"
+	"github.com/d891320478/server-go-collect/bili-danmu/domain"
 	"github.com/gorilla/websocket"
 	"google.golang.org/protobuf/types/known/wrapperspb"
 )
@@ -43,7 +44,7 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// 连接弹幕
-	danmu := make(chan string)
+	danmu := make(chan domain.DanMuVO)
 	closeFlag := make(chan bool)
 	defer close(danmu)
 	defer close(closeFlag)
@@ -66,13 +67,14 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 	// 写消息
 	for flag := false; !flag; {
 		select {
-		case val := <-danmu:
-			err = ws.WriteMessage(websocket.TextMessage, []byte(val))
+		case dm := <-danmu:
+			err = ws.WriteJSON(dm)
 			if err != nil {
 				baselog.ErrorLog().Error("ws write error. err is %v", err)
 				flag = true
 			}
 		case flag = <-closeFlag:
+			break
 		}
 	}
 }
