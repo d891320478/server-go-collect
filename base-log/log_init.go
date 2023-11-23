@@ -1,14 +1,18 @@
 package baselog
 
 import (
+	"log"
 	"os/exec"
 
 	"github.com/jeanphorn/log4go"
+	"github.com/natefinch/lumberjack"
 )
 
-var rotateSize = 100 * 1024 * 1024
+var rotateSizeMB = 100
+var rotateSize = rotateSizeMB * 1024 * 1024
 var format = "%D %T %L %S - %M"
-var maxBackup = 7
+var maxBackup = 28
+var maxAge = 7
 var infoLog = "info"
 var errorLog = "error"
 
@@ -17,7 +21,17 @@ func InitLog(appName string) {
 	logPath := "/data/logs/" + appName
 	createLogCmd := exec.Command("mkdir", "-p", logPath)
 	createLogCmd.Output()
-	// 输出到控制台,级别为CRITICAL
+	// 处理标准log
+	log.SetFlags(log.Ldate | log.Ltime | log.Llongfile)
+	log.SetOutput(&lumberjack.Logger{
+		Filename:   logPath + "/stdout.log",
+		MaxSize:    rotateSizeMB,
+		MaxBackups: maxBackup,
+		MaxAge:     maxAge,
+		Compress:   true,
+		LocalTime:  true,
+	})
+	// 控制台
 	log4go.AddFilter("stdout", log4go.CRITICAL, log4go.NewConsoleLogWriter())
 	// info
 	infoLogWriter := log4go.NewFileLogWriter(logPath+"/info.log", true, true)
