@@ -31,7 +31,7 @@ func InitLog(appName string) {
 		Compress:   true,
 		LocalTime:  true,
 	})
-	// 控制台
+	// 控制台，级别改成CRITICAL，不往控制台打日志
 	log4go.AddFilter("stdout", log4go.CRITICAL, log4go.NewConsoleLogWriter())
 	// info
 	infoLogWriter := log4go.NewFileLogWriter(logPath+"/info.log", true, true)
