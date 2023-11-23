@@ -506,6 +506,8 @@ github.com/creasty/defaults v1.5.2 h1:/VfB6uxpyp6h0fr7SPp7n8WJBoV8jfxQXPCnkVSjyl
 github.com/creasty/defaults v1.5.2/go.mod h1:FPZ+Y0WNrbqOVw+c6av63eyHUAl6pMHZwqLPvXUZGfY=
 github.com/d891320478/server-go-collect/base-log v0.0.0-20231121132211-7939d2f5ece3 h1:DaYvnTWh//OhyNbUdcKpp61ZUQcxFLmhBoEVKy/g6DA=
 github.com/d891320478/server-go-collect/base-log v0.0.0-20231121132211-7939d2f5ece3/go.mod h1:L2wJWLKISefCrtrZhb/VvlG43ZLuIJupKnTu9SYpeRE=
+github.com/d891320478/server-go-collect/base-log v0.0.0-20231123065718-5c025562edfd h1:2MFoJHaXJL35T74rIqSAHcUuq+RwBG6lJYvh9KnTh80=
+github.com/d891320478/server-go-collect/base-log v0.0.0-20231123065718-5c025562edfd/go.mod h1:L2wJWLKISefCrtrZhb/VvlG43ZLuIJupKnTu9SYpeRE=
 github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121101636-4d7e79dc779d h1:rWv8Hlgc3/Z3Tf6tCHcD5O4NhUHoZMHRP/aLlwLX1oU=
 github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121101636-4d7e79dc779d/go.mod h1:QdcbffB5uIPNFka+07W4B3PRjFBMfUH/6wqPEgjK3KQ=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

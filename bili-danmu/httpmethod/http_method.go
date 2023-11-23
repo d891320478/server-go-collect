@@ -13,8 +13,8 @@ import (
 )
 
 var wu = &websocket.Upgrader{
-	ReadBufferSize:  512,
-	WriteBufferSize: 512,
+	ReadBufferSize:  8192,
+	WriteBufferSize: 8192,
 	CheckOrigin:     func(r *http.Request) bool { return true },
 }
 
@@ -54,15 +54,12 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer biliservice.CloseClient(client)
-	ws.SetCloseHandler(func(code int, text string) error {
-		closeFlag <- true
-		return nil
-	})
 	go func() {
 		for {
-			if _, _, err := ws.NextReader(); err != nil {
+			messageType, _, err := ws.ReadMessage()
+			if err != nil || messageType == websocket.CloseMessage {
 				closeFlag <- true
-				break
+				return
 			}
 		}
 	}()
@@ -76,9 +73,6 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 				flag = true
 			}
 		case flag = <-closeFlag:
-			baselog.InfoLog().Info("closeFlag = %t", flag)
 		}
-		baselog.InfoLog().Info("flag = %t", flag)
 	}
-	baselog.InfoLog().Info("close ws success")
 }
