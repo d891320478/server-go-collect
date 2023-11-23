@@ -504,8 +504,6 @@ github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ3
 github.com/creack/pty v1.1.11/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/creasty/defaults v1.5.2 h1:/VfB6uxpyp6h0fr7SPp7n8WJBoV8jfxQXPCnkVSjyls=
 github.com/creasty/defaults v1.5.2/go.mod h1:FPZ+Y0WNrbqOVw+c6av63eyHUAl6pMHZwqLPvXUZGfY=
-github.com/d891320478/server-go-collect/base-log v0.0.0-20231121132211-7939d2f5ece3 h1:DaYvnTWh//OhyNbUdcKpp61ZUQcxFLmhBoEVKy/g6DA=
-github.com/d891320478/server-go-collect/base-log v0.0.0-20231121132211-7939d2f5ece3/go.mod h1:L2wJWLKISefCrtrZhb/VvlG43ZLuIJupKnTu9SYpeRE=
 github.com/d891320478/server-go-collect/base-log v0.0.0-20231123065718-5c025562edfd h1:2MFoJHaXJL35T74rIqSAHcUuq+RwBG6lJYvh9KnTh80=
 github.com/d891320478/server-go-collect/base-log v0.0.0-20231123065718-5c025562edfd/go.mod h1:L2wJWLKISefCrtrZhb/VvlG43ZLuIJupKnTu9SYpeRE=
 github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121101636-4d7e79dc779d h1:rWv8Hlgc3/Z3Tf6tCHcD5O4NhUHoZMHRP/aLlwLX1oU=
@@ -746,7 +744,6 @@ github.com/gopherjs/gopherjs v0.0.0-20190910122728-9d188e94fb99 h1:twflg0XRTjwKp
 github.com/gopherjs/gopherjs v0.0.0-20190910122728-9d188e94fb99/go.mod h1:wJfORRmW1u3UXTncJ5qlYoELFm8eSnnEO6hX4iZ3EWY=
 github.com/gorilla/context v1.1.1/go.mod h1:kBGZzfjB9CEq2AlWe17Uuf7NDRt0dE0s8S51q0aT7Yg=
 github.com/gorilla/mux v1.6.2/go.mod h1:1lud6UwP+6orDFRuTfBEV8e9/aOM/c4fVVCaMa2zaAs=
-github.com/gorilla/mux v1.7.3 h1:gnP5JzjVOuiZD07fKKToCAOjS0yOpj/qPETTXCCS6hw=
 github.com/gorilla/mux v1.7.3/go.mod h1:1lud6UwP+6orDFRuTfBEV8e9/aOM/c4fVVCaMa2zaAs=
 github.com/gorilla/websocket v0.0.0-20170926233335-4201258b820c/go.mod h1:E7qHFY5m1UJ88s3WnNqhKjPHQ0heANvMoAMk2YaljkQ=
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=

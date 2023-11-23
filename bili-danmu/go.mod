@@ -7,7 +7,6 @@ require (
 	github.com/Akegarasu/blivedm-go v1.5.0
 	github.com/d891320478/server-go-collect/base-log v0.0.0-20231123065718-5c025562edfd
 	github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121101636-4d7e79dc779d
-	github.com/gorilla/mux v1.7.3
 	github.com/gorilla/websocket v1.5.1
 	google.golang.org/protobuf v1.31.0
 )
