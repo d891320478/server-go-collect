@@ -5,7 +5,7 @@ go 1.19
 require (
 	dubbo.apache.org/dubbo-go/v3 v3.1.0
 	github.com/Akegarasu/blivedm-go v1.5.0
-	github.com/d891320478/server-go-collect/base-log v0.0.0-20231123065718-5c025562edfd
+	github.com/d891320478/server-go-collect/base-log v0.0.0-20231123122538-7d5f33f6e7c7
 	github.com/d891320478/server-go-collect/proto-go v0.0.0-20231121101636-4d7e79dc779d
 	github.com/gorilla/websocket v1.5.1
 	google.golang.org/protobuf v1.31.0
@@ -33,6 +33,7 @@ require (
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/creasty/defaults v1.5.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/dlclark/regexp2 v1.7.0 // indirect
 	github.com/dubbogo/go-zookeeper v1.0.4-0.20211212162352-f9d2183d89d5 // indirect
 	github.com/dubbogo/gost v1.14.0 // indirect
@@ -92,6 +93,7 @@ require (
 	github.com/prometheus/client_model v0.4.0 // indirect
 	github.com/prometheus/common v0.37.0 // indirect
 	github.com/prometheus/procfs v0.8.0 // indirect
+	github.com/redis/go-redis/v9 v9.3.0 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/shirou/gopsutil/v3 v3.22.2 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
