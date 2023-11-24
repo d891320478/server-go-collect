@@ -1,4 +1,13 @@
 dubbo:
+  logger:
+    zap-config:
+      level: debug
+    lumberjack-config:
+      filename: "/data/logs/bili-danmu/dubbo.log"
+      maxAge: 3
+      maxBackups: 10
+      localTime: true
+      compress: true
   registries:
     demoZK:
       protocol: zookeeper
