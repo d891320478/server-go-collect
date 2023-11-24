@@ -68,7 +68,9 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 	for flag := false; !flag; {
 		select {
 		case dm := <-danmu:
-			dm.Avatar = biliservice.GetAvatar(dm.Uid)
+			if len(dm.Avatar) == 0 {
+				dm.Avatar = biliservice.GetAvatar(dm.Uid)
+			}
 			err = ws.WriteJSON(dm)
 			if err != nil {
 				baselog.ErrorLog().Error("ws write error. err is %v", err)
