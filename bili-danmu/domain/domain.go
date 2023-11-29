@@ -1,11 +1,11 @@
 package domain
 
 type DanMuVO struct {
-	Content string
-	Name    string
-	Sc      bool
-	Uid     int
-	Avatar  string
+	Content string `json:"content"`
+	Name    string `json:"name"`
+	Sc      bool   `json:"sc"`
+	Uid     int    `json:"uid"`
+	Avatar  string `json:"avatar"`
 }
 
 type TenapiResult[T any] struct {
