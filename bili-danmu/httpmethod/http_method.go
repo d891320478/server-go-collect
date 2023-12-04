@@ -69,7 +69,7 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 	// 写消息
 	var msgList []domain.DanMuVO
 	for i := 1; i < dmLen; i++ {
-		msgList = append(msgList, domain.DanMuVO{Empty: true, Content: " "})
+		msgList = append(msgList, domain.DanMuVO{Empty: true, Content: "&nbsp;"})
 	}
 	msgList = append(msgList, domain.DanMuVO{Empty: true, Content: "弹幕姬启动"})
 	err = ws.WriteJSON(msgList)
