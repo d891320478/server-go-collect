@@ -72,7 +72,13 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 		msgList = append(msgList, domain.DanMuVO{Empty: true, Content: " "})
 	}
 	msgList = append(msgList, domain.DanMuVO{Empty: true, Content: "弹幕姬启动"})
-	for flag := false; !flag; {
+	err = ws.WriteJSON(msgList)
+	flag := false
+	if err != nil {
+		baselog.ErrorLog().Error("ws write error. err is %v", err)
+		flag = true
+	}
+	for !flag {
 		select {
 		case dm := <-danmu:
 			if len(dm.Avatar) == 0 {
