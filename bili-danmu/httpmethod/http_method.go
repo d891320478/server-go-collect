@@ -19,7 +19,7 @@ var wu = &websocket.Upgrader{
 	CheckOrigin:     func(r *http.Request) bool { return true },
 }
 
-const dmLen = 30
+const dmLen = 50
 
 func DanmuList(w http.ResponseWriter, r *http.Request) {
 	ws, err := wu.Upgrade(w, r, nil)
