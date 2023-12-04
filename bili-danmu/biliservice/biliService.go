@@ -31,6 +31,7 @@ func Register(channel chan domain.DanMuVO, roomId int64) (*client.Client, error)
 			Name:    danmaku.Sender.Uname,
 			Sc:      false,
 			Uid:     danmaku.Sender.Uid,
+			Empty:   false,
 		}
 	})
 	// 醒目留言
@@ -41,6 +42,7 @@ func Register(channel chan domain.DanMuVO, roomId int64) (*client.Client, error)
 			Sc:      true,
 			Uid:     superChat.Uid,
 			Avatar:  superChat.UserInfo.Face,
+			Empty:   false,
 		}
 	})
 	return c, c.Start()

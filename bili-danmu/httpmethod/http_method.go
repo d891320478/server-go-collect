@@ -19,6 +19,8 @@ var wu = &websocket.Upgrader{
 	CheckOrigin:     func(r *http.Request) bool { return true },
 }
 
+const dmLen = 30
+
 func DanmuList(w http.ResponseWriter, r *http.Request) {
 	ws, err := wu.Upgrade(w, r, nil)
 	if err != nil {
@@ -65,13 +67,21 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 		}
 	}()
 	// 写消息
+	var msgList []domain.DanMuVO
+	for i := 1; i <= dmLen; i++ {
+		msgList = append(msgList, domain.DanMuVO{Empty: true})
+	}
 	for flag := false; !flag; {
 		select {
 		case dm := <-danmu:
 			if len(dm.Avatar) == 0 {
 				dm.Avatar = biliservice.GetAvatar(dm.Uid)
 			}
-			err = ws.WriteJSON(dm)
+			msgList = append(msgList, dm)
+			if len(msgList) > dmLen {
+				msgList = msgList[1:]
+			}
+			err = ws.WriteJSON(msgList)
 			if err != nil {
 				baselog.ErrorLog().Error("ws write error. err is %v", err)
 				flag = true
