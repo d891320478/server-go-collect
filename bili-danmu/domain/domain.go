@@ -7,6 +7,7 @@ type DanMuVO struct {
 	Uid     int    `json:"uid"`
 	Avatar  string `json:"avatar"`
 	Empty   bool   `json:"empty"`
+	Type    int    `json:"type"`
 }
 
 type TenapiResult[T any] struct {

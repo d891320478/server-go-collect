@@ -26,12 +26,16 @@ func Register(channel chan domain.DanMuVO, roomId int64) (*client.Client, error)
 	// 弹幕事件
 	c.OnDanmaku(func(danmaku *message.Danmaku) {
 		// TODO
+		// if danmaku.Type == message.EmoticonDanmaku {
+		// }
+
 		channel <- domain.DanMuVO{
 			Content: danmaku.Content,
 			Name:    danmaku.Sender.Uname,
 			Sc:      false,
 			Uid:     danmaku.Sender.Uid,
 			Empty:   false,
+			Type:    danmaku.Type,
 		}
 	})
 	// 醒目留言
