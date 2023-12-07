@@ -25,11 +25,7 @@ func Register(channel chan domain.DanMuVO, roomId int64) (*client.Client, error)
 	c.SetCookie(getCookieFromFile())
 	// 弹幕事件
 	c.OnDanmaku(func(danmaku *message.Danmaku) {
-		// TODO
-		// if danmaku.Type == message.EmoticonDanmaku {
-		// }
-
-		channel <- domain.DanMuVO{
+		dm := domain.DanMuVO{
 			Content: danmaku.Content,
 			Name:    danmaku.Sender.Uname,
 			Sc:      false,
@@ -37,6 +33,10 @@ func Register(channel chan domain.DanMuVO, roomId int64) (*client.Client, error)
 			Empty:   false,
 			Type:    danmaku.Type,
 		}
+		if danmaku.Type == message.EmoticonDanmaku {
+			dm.EmoticonUrl = danmaku.Emoticon.Url
+		}
+		channel <- dm
 	})
 	// 醒目留言
 	c.OnSuperChat(func(superChat *message.SuperChat) {
@@ -49,6 +49,7 @@ func Register(channel chan domain.DanMuVO, roomId int64) (*client.Client, error)
 			Empty:   false,
 		}
 	})
+	// TODO 礼物
 	return c, c.Start()
 }
 
