@@ -14,8 +14,6 @@ import (
 
 const danmuFilePath = "/data/biliDanMu%d/%d-%s-%s.log"
 
-var c *client.Client
-
 func AllDanMu(roomId int) {
 	c := client.NewClient(roomId)
 	c.SetCookie(getCookieFromFile())
