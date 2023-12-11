@@ -2,8 +2,10 @@ package httpmethod
 
 import (
 	"context"
+	"math/rand"
 	"net/http"
 	"strconv"
+	"time"
 
 	baselog "github.com/d891320478/server-go-collect/base-log"
 	"github.com/d891320478/server-go-collect/bili-danmu/bean"
@@ -95,5 +97,54 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 			}
 		case flag = <-closeFlag:
 		}
+	}
+}
+
+func DanmuListTestGift(w http.ResponseWriter, r *http.Request) {
+	ws, err := wu.Upgrade(w, r, nil)
+	if err != nil {
+		baselog.ErrorLog().Error("get ws error. err = %v", err)
+		w.WriteHeader(http.StatusBadGateway)
+		return
+	}
+	defer ws.Close()
+	// 写消息
+	var msgList []domain.DanMuVO
+	for i := 1; i < dmLen; i++ {
+		msgList = append(msgList, domain.DanMuVO{Empty: true, Content: ""})
+	}
+	msgList = append(msgList, domain.DanMuVO{Empty: true, Content: "弹幕姬启动"})
+	err = ws.WriteJSON(msgList)
+	flag := false
+	if err != nil {
+		baselog.ErrorLog().Error("ws write error. err is %v", err)
+		flag = true
+	}
+	for !flag {
+		gifttype := []string{"gold", "silver"}
+		dm := domain.DanMuVO{
+			Content:  "普通礼物",
+			Name:     "粉饼",
+			Sc:       false,
+			Uid:      1,
+			Avatar:   "https://i1.hdslb.com/bfs/face/00c0305d9c6218e78233a393b989c370b013d9e5.jpg",
+			Empty:    false,
+			Gift:     true,
+			GiftNum:  rand.Intn(100),
+			GiftType: gifttype[rand.Intn(2)],
+			Guard:    false,
+			Price:    float64(200) / 1000.0,
+			GiftUrl:  "https://i0.hdslb.com/bfs/face/15e58c265ac3d4d7d835714039599d6f8c44d553.jpg",
+		}
+		msgList = append(msgList, dm)
+		if len(msgList) > dmLen {
+			msgList = msgList[1:]
+		}
+		err = ws.WriteJSON(msgList)
+		if err != nil {
+			baselog.ErrorLog().Error("ws write error. err is %v", err)
+			flag = true
+		}
+		time.Sleep(1 * time.Second)
 	}
 }

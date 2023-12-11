@@ -19,6 +19,7 @@ func main() {
 		panic(err)
 	}
 	http.HandleFunc("/bili-danmu/danmuList", httpmethod.DanmuList)
+	http.HandleFunc("/bili-danmu/danmuList/testGift", httpmethod.DanmuListTestGift)
 	err := http.ListenAndServe(":9755", nil)
 	if err != nil {
 		panic(err)
