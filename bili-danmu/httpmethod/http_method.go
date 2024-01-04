@@ -48,7 +48,7 @@ func DanmuList(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// 连接弹幕
-	danmu := make(chan domain.DanMuVO)
+	danmu := make(chan domain.DanMuVO, 10)
 	closeFlag := make(chan bool)
 	defer close(danmu)
 	defer close(closeFlag)
