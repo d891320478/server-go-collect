@@ -1,13 +1,13 @@
 package bililive
 
 import (
-	"fmt"
 	"os"
 	"strconv"
 	"strings"
 
 	"github.com/Akegarasu/blivedm-go/client"
 	"github.com/Akegarasu/blivedm-go/message"
+	baselog "github.com/d891320478/server-go-collect/base-log"
 )
 
 const roomId = 222272
@@ -24,7 +24,7 @@ func Register(channel chan TouPiao) {
 	c.SetCookie(getCookieFromFile())
 	//弹幕事件
 	c.OnDanmaku(func(danmaku *message.Danmaku) {
-		fmt.Printf("[弹幕] %s[%d]：%s\n", danmaku.Sender.Uname, danmaku.Sender.Uid, danmaku.Content)
+		baselog.InfoLog().Info("[弹幕] %s[%d]：%s", danmaku.Sender.Uname, danmaku.Sender.Uid, danmaku.Content)
 		if danmaku.Type != message.EmoticonDanmaku {
 			val, err := strconv.Atoi(danmaku.Content)
 			if err == nil {
@@ -36,8 +36,7 @@ func Register(channel chan TouPiao) {
 	})
 	err := c.Start()
 	if err != nil {
-		fmt.Println("Register")
-		fmt.Println(err)
+		baselog.ErrorLog().Error("Register %v", err)
 		panic(err)
 	}
 }
@@ -54,6 +53,5 @@ func getCookieFromFile() string {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(b)
 	return strings.TrimSpace(string(b))
 }
