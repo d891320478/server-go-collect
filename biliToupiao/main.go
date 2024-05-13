@@ -24,13 +24,15 @@ func Throwable() {
 	fmt.Println(string(debug.Stack()))
 }
 
-// CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o build/usr.exe -x src/Main.go
+// CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -ldflags "-X github.com/d891320478/server-go-collect/biliToupiao/main.Host=$ALIYUN_HOST" -o build/usr.exe -x src/Main.go
 func main() {
 	defer Throwable()
 	biliToupiao()
 }
 
 const song_list_file = "list.txt"
+
+var Host string
 
 func biliToupiao() {
 	if !file.Exists(song_list_file) {
@@ -78,9 +80,9 @@ func biliToupiao() {
 	// 回写文件
 	writeToListFile(mp, list, total)
 	// 发请求start
-	http.Get("http://47.97.10.207:9961/htdong/liveVote/startVote")
+	http.Get("http://" + Host + ":9961/htdong/liveVote/startVote")
 	time.Sleep(3 * time.Second)
-	resp, err := http.Get(fmt.Sprintf("http://47.97.10.207:9961/startLive/startGetDanMu?total=%d", total))
+	resp, err := http.Get(fmt.Sprintf("http://"+Host+":9961/startLive/startGetDanMu?total=%d", total))
 	for {
 		fmt.Println("startGetDanMu")
 		if err != nil {
@@ -92,11 +94,11 @@ func biliToupiao() {
 			fmt.Printf("startGetDanMu code = %d\n", resp.StatusCode)
 		}
 		time.Sleep(1 * time.Second)
-		resp, err = http.Get(fmt.Sprintf("http://47.97.10.207:9961/startLive/startGetDanMu?total=%d", total))
+		resp, err = http.Get(fmt.Sprintf("http://"+Host+":9961/startLive/startGetDanMu?total=%d", total))
 	}
 	mp = make(map[int]int)
 	for {
-		resp, err := http.Get("http://47.97.10.207:9961/startLive/getCountRlt")
+		resp, err := http.Get("http://" + Host + ":9961/startLive/getCountRlt")
 		if err != nil {
 			fmt.Printf("getCountRlt err. %v\n", err)
 		} else if resp.StatusCode == 200 {
