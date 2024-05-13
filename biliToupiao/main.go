@@ -80,8 +80,6 @@ func biliToupiao() {
 	// 回写文件
 	writeToListFile(mp, list, total)
 	// 发请求start
-	http.Get("http://" + Host + ":9961/htdong/liveVote/startVote")
-	time.Sleep(3 * time.Second)
 	resp, err := http.Get(fmt.Sprintf("http://"+Host+":9961/startLive/startGetDanMu?total=%d", total))
 	for {
 		fmt.Println("startGetDanMu")
