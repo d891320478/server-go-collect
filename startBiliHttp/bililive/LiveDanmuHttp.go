@@ -8,8 +8,8 @@ import (
 )
 
 var total int
-var mp map[int]int
-var limit map[int]int
+var mp map[int]int = make(map[int]int)
+var limit map[int]int = make(map[int]int)
 var channel chan TouPiao = make(chan TouPiao, 10)
 var lockMp = new(sync.RWMutex)
 
