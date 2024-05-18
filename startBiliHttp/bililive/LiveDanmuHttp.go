@@ -39,7 +39,7 @@ func count() {
 			lockMp.Lock()
 			limit[val.Uid]++
 			if limit[val.Uid] <= 3 {
-				mp[val.Val]++
+				mp[val.Val-1]++
 			}
 			lockMp.Unlock()
 		}
