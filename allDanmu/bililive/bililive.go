@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
@@ -25,9 +26,19 @@ func AllDanMu(roomId int) {
 	})
 	// 醒目留言
 	c.OnSuperChat(func(superChat *message.SuperChat) {
-		jsonStr, _ := json.Marshal(superChat)
-		fmt.Println(string(jsonStr))
 		writeToFile(time.Unix(int64(superChat.StartTime), 0).Format("2006-01-02 15:04:05")+"[SC]", superChat.UserInfo.Uname, superChat.Message, roomId, superChat.Uid)
+	})
+	// 礼物
+	c.OnGift(func(gift *message.Gift) {
+		if gift.CoinType == "gold" {
+			jsonStr, _ := json.Marshal(gift)
+			fmt.Println(string(jsonStr))
+			writeToFile(time.Unix(int64(gift.Timestamp), 0).Format("2006-01-02 15:04:05"), gift.Uname, "赠送"+gift.GiftName+"*"+strconv.Itoa(gift.Num), roomId, gift.Uid)
+		}
+	})
+	// 上舰
+	c.OnGuardBuy(func(guard *message.GuardBuy) {
+		writeToFile(time.Unix(int64(guard.StartTime), 0).Format("2006-01-02 15:04:05"), guard.Username, "上"+guardLevel(guard.GuardLevel)+"*"+strconv.Itoa(guard.Num), roomId, guard.Uid)
 	})
 	err := c.Start()
 	if err != nil {
@@ -35,6 +46,16 @@ func AllDanMu(roomId int) {
 	}
 	for {
 		time.Sleep(5 * time.Minute)
+	}
+}
+
+func guardLevel(level int) string {
+	if level == 1 {
+		return "总督"
+	} else if level == 2 {
+		return "提督"
+	} else {
+		return "舰长"
 	}
 }
 
