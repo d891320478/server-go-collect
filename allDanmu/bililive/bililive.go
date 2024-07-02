@@ -7,6 +7,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/Akegarasu/blivedm-go/client"
@@ -14,6 +15,8 @@ import (
 )
 
 const danmuFilePath = "/data/biliDanMu%d/%d-%s-%s.log"
+
+var writeDanMuLock sync.Mutex
 
 func AllDanMu(roomId int) {
 	c := client.NewClient(roomId)
@@ -60,6 +63,8 @@ func guardLevel(level int) string {
 }
 
 func writeToFile(tm, uname, content string, roomId, uid int) {
+	writeDanMuLock.Lock()
+	defer writeDanMuLock.Unlock()
 	now := time.Now()
 	filePath := fmt.Sprintf(danmuFilePath, roomId, now.Year(), now.Format("01"), now.Format("02"))
 	file, _ := os.OpenFile(filePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
@@ -67,7 +72,6 @@ func writeToFile(tm, uname, content string, roomId, uid int) {
 	write := bufio.NewWriter(file)
 	write.WriteString(fmt.Sprintf("[%s] %s[%d]: %s\n", tm, uname, uid, content))
 	write.Flush()
-	file.Close()
 }
 
 func getCookieFromFile() string {
