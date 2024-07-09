@@ -116,9 +116,8 @@ func writeToListFile(mp map[int]int, list []string, total int) {
 	write := bufio.NewWriter(file)
 	write.WriteString("规则：征集时请把想听的歌打在弹幕 选曲没任何限制0w0\r\n")
 	write.WriteString("投票时每个人最多三票\r\n")
-	write.WriteString("从会唱的里面选两首的票最高的今天唱/吹\r\n")
-	write.WriteString("不会的里最高的下周唱（不含卡祖笛曲）\r\n")
-	write.WriteString("想听卡祖笛版也可以，在歌名前面加上卡祖笛三字。下周翻唱\r\n")
+	write.WriteString("从会唱的里面选一首得票最高的今天唱\r\n")
+	write.WriteString("不会的里最高的下周唱\r\n")
 	for i := 0; i < total; i++ {
 		val := strconv.Itoa(i+1) + ". " + strings.TrimSpace(list[i]) + "   " + strconv.Itoa(mp[i]) + " 票\r\n"
 		write.WriteString(val)
