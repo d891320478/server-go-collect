@@ -43,7 +43,7 @@ func main() {
 			} else {
 				rlt = "检定失败"
 			}
-			replyMsg := pbbot.NewMsg().At(userId).Text("\r\n检定目标：" + target + "\r\n").Text("检定数值：" + a.String() + "\r\n").Text("检定结果：" + b.String() + "\r\n").Text(rlt)
+			replyMsg := pbbot.NewMsg().At(userId).Text(fmt.Sprintf("\r\n检定目标：%s\r\n检定数值：%s\r\n检定结果：%s\r\n%s", target, a.String(), b.String(), rlt))
 			_, _ = bot.SendGroupMessage(groupId, replyMsg, false)
 		}
 		if strings.Contains(rawMsg, "碟") && groupId != 151118379 {
@@ -58,7 +58,7 @@ func main() {
 	router := gin.Default()
 	router.GET("/", func(c *gin.Context) {
 		if err := pbbot.UpgradeWebsocket(c.Writer, c.Request); err != nil {
-			fmt.Println("创建机器人失败")
+			panic("创建机器人失败")
 		}
 	})
 
