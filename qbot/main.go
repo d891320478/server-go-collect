@@ -14,7 +14,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// GOOS=linux GOARCH=amd64 go build -o qbot -x main.go
+// GOOS=linux GOARCH=amd64 go build -o build/qbot -x main.go
 func main() {
 
 	pbbot.HandleConnect = func(bot *pbbot.Bot) {
