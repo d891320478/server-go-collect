@@ -36,12 +36,12 @@ func AllDanMu(roomId int) {
 		if gift.CoinType == "gold" {
 			jsonStr, _ := json.Marshal(gift)
 			fmt.Println(string(jsonStr))
-			writeToFile(time.Unix(int64(gift.Timestamp), 0).Format("2006-01-02 15:04:05"), gift.Uname, "赠送"+gift.GiftName+"*"+strconv.Itoa(gift.Num), roomId, gift.Uid)
+			writeToFile(time.Unix(int64(gift.Timestamp), 0).Format("2006-01-02 15:04:05")+"[Gift]", gift.Uname, "赠送"+gift.GiftName+"*"+strconv.Itoa(gift.Num), roomId, gift.Uid)
 		}
 	})
 	// 上舰
 	c.OnGuardBuy(func(guard *message.GuardBuy) {
-		writeToFile(time.Unix(int64(guard.StartTime), 0).Format("2006-01-02 15:04:05"), guard.Username, "上"+guardLevel(guard.GuardLevel)+"*"+strconv.Itoa(guard.Num), roomId, guard.Uid)
+		writeToFile(time.Unix(int64(guard.StartTime), 0).Format("2006-01-02 15:04:05")+"[Guard]", guard.Username, "上"+guardLevel(guard.GuardLevel)+"*"+strconv.Itoa(guard.Num), roomId, guard.Uid)
 	})
 	err := c.Start()
 	if err != nil {
