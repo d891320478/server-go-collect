@@ -16,7 +16,7 @@ dubbo:
       registry-type: interface
   consumer:
     references:
-      BiliRpcServiceClientImpl:
+      BiliRpcServiceImpl:
         protocol: tri
         interface: com.htdong.common.rpc.bili.BiliRpcService
         group: bili
