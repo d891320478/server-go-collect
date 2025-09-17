@@ -2,6 +2,7 @@ package bililive
 
 import (
 	"bufio"
+	"context"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -12,6 +13,9 @@ import (
 
 	"github.com/Akegarasu/blivedm-go/client"
 	"github.com/Akegarasu/blivedm-go/message"
+	"github.com/d891320478/server-go-collect/allDanmu/bean"
+	baselog "github.com/d891320478/server-go-collect/base-log"
+	"github.com/d891320478/server-go-collect/proto-go/bili"
 )
 
 const danmuFilePath = "/data/biliDanMu%d/%d-%s-%s.log"
@@ -42,6 +46,17 @@ func AllDanMu(roomId int) {
 	// 上舰
 	c.OnGuardBuy(func(guard *message.GuardBuy) {
 		writeToFile(time.Unix(int64(guard.StartTime), 0).Format("2006-01-02 15:04:05")+"[Guard]", guard.Username, "上"+guardLevel(guard.GuardLevel)+"*"+strconv.Itoa(guard.Num), roomId, guard.Uid)
+
+		req := bili.AddNewGuardRequest{
+			RoomId:     int64(roomId),
+			Uid:        int64(guard.Uid),
+			Username:   guard.Username,
+			GuardLevel: int32(guard.GuardLevel),
+		}
+		_, err0 := bean.BiliRpcService.AddNewGuard(context.Background(), &req)
+		if err0 != nil {
+			baselog.ErrorLog().Error("AddNewGuard error: %s", err0.Error())
+		}
 	})
 	err := c.Start()
 	if err != nil {
