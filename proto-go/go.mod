@@ -1,6 +1,6 @@
 module github.com/d891320478/server-go-collect/proto-go
 
-go 1.19
+go 1.25
 
 require (
 	dubbo.apache.org/dubbo-go/v3 v3.1.0
