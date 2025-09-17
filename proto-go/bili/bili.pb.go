@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.9
 // 	protoc        v6.32.1
-// source: bili.proto
+// source: bili/bili.proto
 
 package bili
 
@@ -35,7 +35,7 @@ type AddNewGuardRequest struct {
 
 func (x *AddNewGuardRequest) Reset() {
 	*x = AddNewGuardRequest{}
-	mi := &file_bili_proto_msgTypes[0]
+	mi := &file_bili_bili_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -47,7 +47,7 @@ func (x *AddNewGuardRequest) String() string {
 func (*AddNewGuardRequest) ProtoMessage() {}
 
 func (x *AddNewGuardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bili_proto_msgTypes[0]
+	mi := &file_bili_bili_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +60,7 @@ func (x *AddNewGuardRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNewGuardRequest.ProtoReflect.Descriptor instead.
 func (*AddNewGuardRequest) Descriptor() ([]byte, []int) {
-	return file_bili_proto_rawDescGZIP(), []int{0}
+	return file_bili_bili_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *AddNewGuardRequest) GetRoomId() int64 {
@@ -91,12 +91,11 @@ func (x *AddNewGuardRequest) GetGuardLevel() int32 {
 	return 0
 }
 
-var File_bili_proto protoreflect.FileDescriptor
+var File_bili_bili_proto protoreflect.FileDescriptor
 
-const file_bili_proto_rawDesc = "" +
+const file_bili_bili_proto_rawDesc = "" +
 	"\n" +
-	"\n" +
-	"bili.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bgoogle/protobuf/empty.proto\"z\n" +
+	"\x0fbili/bili.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bgoogle/protobuf/empty.proto\"z\n" +
 	"\x12AddNewGuardRequest\x12\x16\n" +
 	"\x06roomId\x18\x01 \x01(\x03R\x06roomId\x12\x10\n" +
 	"\x03uid\x18\x02 \x01(\x03R\x03uid\x12\x1a\n" +
@@ -110,25 +109,25 @@ const file_bili_proto_rawDesc = "" +
 	"\x1acom.htdong.common.rpc.biliB\x13BiliRpcServiceProtoP\x01Z\a./;bilib\x06proto3"
 
 var (
-	file_bili_proto_rawDescOnce sync.Once
-	file_bili_proto_rawDescData []byte
+	file_bili_bili_proto_rawDescOnce sync.Once
+	file_bili_bili_proto_rawDescData []byte
 )
 
-func file_bili_proto_rawDescGZIP() []byte {
-	file_bili_proto_rawDescOnce.Do(func() {
-		file_bili_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_bili_proto_rawDesc), len(file_bili_proto_rawDesc)))
+func file_bili_bili_proto_rawDescGZIP() []byte {
+	file_bili_bili_proto_rawDescOnce.Do(func() {
+		file_bili_bili_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_bili_bili_proto_rawDesc), len(file_bili_bili_proto_rawDesc)))
 	})
-	return file_bili_proto_rawDescData
+	return file_bili_bili_proto_rawDescData
 }
 
-var file_bili_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_bili_proto_goTypes = []any{
+var file_bili_bili_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_bili_bili_proto_goTypes = []any{
 	(*AddNewGuardRequest)(nil),    // 0: AddNewGuardRequest
 	(*wrapperspb.Int64Value)(nil), // 1: google.protobuf.Int64Value
 	(*wrapperspb.BoolValue)(nil),  // 2: google.protobuf.BoolValue
 	(*emptypb.Empty)(nil),         // 3: google.protobuf.Empty
 }
-var file_bili_proto_depIdxs = []int32{
+var file_bili_bili_proto_depIdxs = []int32{
 	1, // 0: BiliRpcService.RoomCanUseServer:input_type -> google.protobuf.Int64Value
 	0, // 1: BiliRpcService.AddNewGuard:input_type -> AddNewGuardRequest
 	2, // 2: BiliRpcService.RoomCanUseServer:output_type -> google.protobuf.BoolValue
@@ -140,26 +139,26 @@ var file_bili_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_bili_proto_init() }
-func file_bili_proto_init() {
-	if File_bili_proto != nil {
+func init() { file_bili_bili_proto_init() }
+func file_bili_bili_proto_init() {
+	if File_bili_bili_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bili_proto_rawDesc), len(file_bili_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bili_bili_proto_rawDesc), len(file_bili_bili_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_bili_proto_goTypes,
-		DependencyIndexes: file_bili_proto_depIdxs,
-		MessageInfos:      file_bili_proto_msgTypes,
+		GoTypes:           file_bili_bili_proto_goTypes,
+		DependencyIndexes: file_bili_bili_proto_depIdxs,
+		MessageInfos:      file_bili_bili_proto_msgTypes,
 	}.Build()
-	File_bili_proto = out.File
-	file_bili_proto_goTypes = nil
-	file_bili_proto_depIdxs = nil
+	File_bili_bili_proto = out.File
+	file_bili_bili_proto_goTypes = nil
+	file_bili_bili_proto_depIdxs = nil
 }
