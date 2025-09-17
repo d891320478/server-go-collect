@@ -3,7 +3,6 @@ package bililive
 import (
 	"bufio"
 	"context"
-	"encoding/json"
 	"fmt"
 	"os"
 	"strconv"
@@ -38,8 +37,6 @@ func AllDanMu(roomId int) {
 	// 礼物
 	c.OnGift(func(gift *message.Gift) {
 		if gift.CoinType == "gold" {
-			jsonStr, _ := json.Marshal(gift)
-			fmt.Println(string(jsonStr))
 			writeToFile(time.Unix(int64(gift.Timestamp), 0).Format("2006-01-02 15:04:05")+"[Gift]", gift.Uname, "赠送"+gift.GiftName+"*"+strconv.Itoa(gift.Num), roomId, gift.Uid)
 		}
 	})
