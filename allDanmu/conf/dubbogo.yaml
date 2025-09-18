@@ -1,0 +1,22 @@
+dubbo:
+  logger:
+    zap-config:
+      level: debug
+    lumberjack-config:
+      filename: "/data/logs/bili-danmu/dubbo.log"
+      maxAge: 3
+      maxBackups: 10
+      localTime: true
+      compress: true
+  registries:
+    demoZK:
+      protocol: zookeeper
+      timeout: 5s
+      address: zookeeper.server.net:2181
+      registry-type: interface
+  consumer:
+    references:
+      BiliRpcServiceImpl:
+        protocol: tri
+        interface: com.htdong.common.rpc.bili.BiliRpcService
+        group: bili

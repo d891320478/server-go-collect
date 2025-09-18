@@ -3,7 +3,7 @@
 set -e
 
 APP_NAME=getAllDanmu
-GOOS=linux GOARCH=amd64 go build -o build/${APP_NAME} main.go
+GOOS=linux GOARCH=amd64 go build -o build/${APP_NAME} cmd/app.go
 cd build
 rm -f getAllDanmu.zip
 zip getAllDanmu.zip getAllDanmu
